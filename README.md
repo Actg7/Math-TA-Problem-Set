@@ -1,1 +1,1 @@
-Solutions to the problems from the Math TA application (2024)
+Solutions to the problems from the Math TA application (2024).
