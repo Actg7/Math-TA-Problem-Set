@@ -1,0 +1,92 @@
+% !TeX program=pdfLaTeX
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{notes}
+\setlength{\topsep}{0.65em}
+
+\RequirePackage{afterpage}
+\RequirePackage{amsmath}%[centertags, intlimits, sumlimits, namelimits]
+\RequirePackage{amscd}
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+\RequirePackage{caption}
+\RequirePackage{changepage}
+\RequirePackage[inline]{enumitem}
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{grffile}
+\RequirePackage[colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black]{hyperref}
+\RequirePackage[framemethod=TikZ]{mdframed}
+\RequirePackage{subcaption}
+%\RequirePackage{tikz}
+\RequirePackage{tikz-cd}
+\RequirePackage{thmtools}
+\RequirePackage[normalem]{ulem}
+\RequirePackage{verbatim}
+\RequirePackage{xcolor}
+
+\setcounter{topnumber}{1}
+
+%\theoremstyle{remark}
+\newtheorem{portfoliotheoreminner}{Theorem}
+\newenvironment{portfoliotheorem}[1]{%
+  \renewcommand\theportfoliotheoreminner{#1}%
+  \portfoliotheoreminner
+}{\endportfoliotheoreminner}
+
+\newtheorem{probleminner}{Problem}
+\newenvironment{problem}[1]{%
+  \renewcommand\theprobleminner{#1}%
+  \probleminner
+}{\endprobleminner}
+
+\newtheorem{corollaryinner}{Corollary}
+\newenvironment{corollary}[1]{%
+  \renewcommand\thecorollaryinner{#1}%
+  \corollaryinner
+}{\endcorollaryinner}
+
+\newenvironment{solution}{\renewcommand{\proofname}{Solution}\begin{proof}}{\end{proof}}
+\newenvironment{idea}{\renewcommand{\proofname}{Idea of proof}\begin{proof}}{\end{proof}}
+
+\newenvironment{definition}[1][{Definition.}]{\begin{mdframed}\begin{trivlist}
+\item[\hskip \labelsep \textbf{#1}]}{\end{trivlist}\end{mdframed}}
+\newenvironment{instructions}{
+\mdfsetup{%
+    frametitle={%
+        \tikz[baseline=(current bounding box.east),outer sep=0pt]
+        \node[anchor=east,rectangle,fill=black]
+        {\strut \textcolor{white}{Instructions}};}
+    }%
+\mdfsetup{%
+    linecolor=black,backgroundcolor=black!10,%
+    linewidth=2pt,topline=true,%
+    frametitleaboveskip=\dimexpr-\ht\strutbox\relax%
+}\begin{mdframed}
+}{\end{mdframed}}
+
+%for font.  see https://tex.stackexchange.com/a/272756
+\RequirePackage{tgpagella}
+\RequirePackage[utf8]{inputenc} 
+\RequirePackage[T1]{fontenc}
+\RequirePackage{amssymb}
+\RequirePackage{microtype}
+
+
+\RequirePackage{float}
+\RequirePackage{afterpage}
+
+\RequirePackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin*{footnote}{section}
+
+%tgpagella has an obnoxious mathcal
+\SetMathAlphabet{\mathcal}{normal}{OMS}{cmsy}{m}{n}
+
+\RequirePackage[nobottomtitles]{titlesec}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\endinput

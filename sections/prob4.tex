@@ -1,0 +1,87 @@
+\section{Problem 4}
+\edef\sectionheader{February 16}
+
+\noindent \textbf{Problem} \ Use Green’s Theorem to evaluate $\oint _C (3xy + y^2) \,dx + (2xy + 5x^2) \,dy$, where $C: (x - 1)^2 + (y + 2)^2 = 1$. Assume that the curve $C$ is traversed in a counterclockwise manner.
+\\\\
+\noindent \textbf{Solution} First, we  recall Green's Theorem:
+\begin{definition} (Green's Theorem)
+\\
+Let $C$ be a positively oriented, piecewise smooth, simple closed curve in a plane, and let $D$ be the region bounded by $C$. If $L$ and $M$ are functions of $(x,y)$ defined on an open region containing $D$ and have continuous partial derivatives there, then \[\oint_C (L\,dx + M\,dy) = \iint_D \left(\frac{\partial M}{\partial x} - \frac{\partial L}{\partial y}\right)\,dx\,dy\] where the path of integration along $C$ is counterclockwise.
+\end{definition}
+We are given that $C: (x - 1)^2 + (y + 2)^2 = 1$. Notice that this is a unit circle with center $(1,-2)$ in the Cartesian plane. We see that $C$ is a piecewise smooth, simple closed curve in the Cartesian plane. Since we are told that the curve $C$ is traversed in a counterclockwise manner, $C$ is positively oriented (the interior always faces left, while the exterior always faces right). We see that $D$ is the unit disk bounded by $C$. Let $L = 3xy + y^2$, and let $M = 2xy + 5x^2$. These functions are defined on all of the Cartesian plane, which is an open region containing $D$, and
+\begin{align*}
+    & \frac{\partial L}{\partial x} = 3y & \frac{\partial L}{\partial y} = 3x + 2y \\
+    & \frac{\partial M}{\partial x} = 2y + 10x & \frac{\partial M}{\partial y} = 2x
+\end{align*}
+are continuous everywhere in the Cartesian plane (they form planes in $\R^3$, which are continuous), and thus on $D$. Therefore, by Green's Theorem, \[\oint_C (3xy + y^2)\,dx + (2xy + 5x^2)\,dy = \iint_D \left( 2y + 10x - (3x + 2y) \right)\,dx\,dy.\] Now, we are to evaluate the right side of the equality. We can simplify the right side integral to $7\iint_D x \,dx\,dy$. Recall that $D: \{(x,y) \in \R^2 \mid (x - 1)^2 + (y + 2)^2 \leq 1\}$. We can convert $D$ into a region $D'$ described by polar coordinates. Since for our region $D$ we have a disk of radius $1$ centered at $(1,-2)$, we have
+\begin{align*}
+    r & = 1 \\
+    r^2 & = 1 \\
+    r^2(\cos^2\theta + \sin^2\theta) & = 1 \\
+    r^2\cos^2\theta + r^2\sin^2\theta & = 1 \\
+    (r\cos\theta)^2 + (r\sin\theta)^2 & = 1 \\
+    ((r\cos\theta + 1) - 1)^2 + ((r\sin\theta - 2) + 2)^2 & = 1 \\
+    (x-1)^2 + (y+2)^2 & = 1.
+\end{align*}
+We can use the formulas $x(r,\theta) = r\cos\theta + 1$, $y(r,\theta) = r\sin\theta - 2$. As $\theta$ goes from $0$ to $2\pi$, $x$ and $y$ trace out a circle of radius $r$ centered at $(1,-2)$. For example, we see that if $r=1$, then at $\theta = 0$, $x = 2$ and $y = -2$. Evaluating $(x(1,\theta),(y(1,\theta)))$ from $\theta = 0$ to $\theta = 2\pi$ traces out $C$. For our region $D'$, we see that $0 \leq r \leq 1$ and $0 \leq \theta < 2\pi$. So, $D': \{(r,\theta): 0 \leq r \leq 1, 0 \leq \theta < 2\pi \}$. We recall that we can perform a change of variables for integration using the following formula:
+\begin{equation*}
+    \iint_R f(x,y) \,dA = \iint_S f(g(u,v),h(u,v))\left| \frac{\partial(x,y)}{\partial(u,v)} \right| \,dA'
+\end{equation*}
+where under the transformation $x=g(u,v),y=h(u,v)$ the region $S$ in the $u-v$ plane becomes the region $R$ in the $x-y$ plane, and $dA'$ is in terms of $u$ and $v$. Note that $\frac{\partial(x,y)}{\partial(u,v)}$ is the Jacobian of the transformation $x = g(u,v),y = h(u,v)$ defined by
+\begin{equation*}
+    \frac{\partial(x,y)}{\partial(u,v)} = 
+        \begin{vmatrix}
+            \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+            \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+        \end{vmatrix}.
+\end{equation*}
+Let $dA = \,dx\,dy$. We see that, under the standard polar transformation $x=r\cos\theta,y=r\sin\theta$, we get
+\begin{align*}
+    \frac{\partial (x,y)}{\partial (r,\theta)} & = 
+        \begin{vmatrix}
+            \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} \\
+            \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
+        \end{vmatrix} \\
+        & = 
+        \begin{vmatrix}
+            \cos\theta & -r\sin\theta \\
+            \sin\theta & r\cos\theta
+        \end{vmatrix} \\
+        & = (\cos\theta)(r\cos\theta) - (\sin\theta)(-r\sin\theta) \\
+        & = r\cos^2\theta - (-r\sin^2\theta) \\
+        & = r\cos^2\theta + r\sin^2\theta \\
+        & = r(\cos^2\theta + \sin^2\theta) \\
+        & = r.
+\end{align*}
+Thus, $dA = \,dx\,dy = \left| \frac{\partial (x,y)}{\partial (r,\theta)} \right| \,dr\,d\theta = |r|\,dr\,d\theta = r\,dr\,d\theta = dA'$ (since $|r| = r$, as $r$ is taken to be nonnegative). Hence, we see that
+\begin{equation*}
+    \iint_D f(x,y) \,dx\,dy = \iint_{D'} f(x(r,\theta),y(r,\theta))r\,dr\,d\theta.
+\end{equation*}
+We are ready to evaluate $7\iint_D x \,dx\,dy$. Recall that in our transformation from $D'$ to $D$, we have $x(r,\theta) = r\cos\theta + 1$. So, by solving out, we get
+\begin{align*}
+    7\int_{-3}^{-1} \int_{-\sqrt{1-(y+2)^2}+1}^{\sqrt{1-(y+2)^2}+1} x \,dx\,dy & = 7\int_0^{2\pi} \int_0^1 (r\cos\theta + 1)r\,dr\,d\theta \\
+    & = 7\int_0^{2\pi} \int_0^1 (r^2\cos\theta + r) \,dr\,d\theta \\
+    & = 7\int_0^{2\pi} \left[ \frac{r^3\cos\theta}{3} + \frac{r^2}{2} \right] \bigg|_0^1 \,d\theta \\
+    & = 7\int_0^{2\pi} \left( \frac{\cos\theta}{3} + \frac{1}{2} \right) \,d\theta \\
+    & = 7 \left[ \frac{\sin\theta}{3} + \frac{\theta}{2} \right] \bigg|_0^{2\pi} \\
+    & = 7\pi.
+\end{align*}
+Hence, by Green's Theorem, $\oint_C (3xy + y^2)\,dx + (2xy + 5x^2)\,dy = 7\pi$.
+\\\\
+If we wanted to directly calculate $\oint_C (3xy + y^2)\,dx + (2xy + 5x^2)\,dy$, we would use the fact that the functions $x(1,\theta) = x(\theta) = \cos\theta + 1$, $y(1,\theta) = y(\theta) = \sin\theta - 2$ trace out $C$ as $\theta$ varies from $0$ to $2\pi$ (this follows from our earlier reasoning). We also see that $\frac{dx}{d\theta} = -\sin\theta, \frac{dy}{d\theta} = \cos\theta$. Let $I = \oint_C (3xy + y^2)\,dx + (2xy + 5x^2)\,dy$.
+\begin{align*}
+    I & = \int_0^{2\pi} (3(\cos\theta+1)(\sin\theta-2) + (\sin\theta-2)^2)(-\sin\theta\,d\theta) + (2(\cos\theta+1)(\sin\theta-2) + 5(\cos\theta+1)^2)(\cos\theta\,d\theta) \\
+    & = \int_0^{2\pi} (3\cos\theta\sin\theta - 6\cos\theta + 3\sin\theta - 6 + \sin^2\theta - 4\sin\theta + 4)(-\sin\theta\,d\theta) \\
+    & + \int_0^{2\pi} (2\cos\theta\sin\theta - 4\cos\theta + 2\sin\theta - 4 + 5\cos^2\theta + 10\cos\theta + 5)(\cos\theta\,d\theta) \\
+    & = \int_0^{2\pi} (-3\cos\theta\sin^2\theta + 6\cos\theta\sin\theta - 3\sin^2\theta + 6\sin\theta - \sin^3\theta + 4\sin^2\theta - 4\sin\theta)\,d\theta \\
+    & + \int_0^{2\pi} (2\cos^2\theta\sin\theta - 4\cos^2\theta + 2\sin\theta\cos\theta - 4\cos\theta + 5\cos^3\theta + 10\cos^2\theta + 5\cos\theta)\,d\theta \\
+    & = \int_0^{2\pi} -3\cos\theta\sin^2\theta\,d\theta + \int_0^{2\pi}6\cos\theta\sin\theta\,d\theta - \int_0^{2\pi}3\sin^2\theta\,d\theta \\
+    & + \int_0^{2\pi}6\sin\theta\,d\theta - \int_0^{2\pi}\sin^3\theta\,d\theta + \int_0^{2\pi}4\sin^2\theta\,d\theta - \int_0^{2\pi}4\sin\theta\,d\theta \\
+    & + \int_0^{2\pi} 2\cos^2\theta\sin\theta\,d\theta - \int_0^{2\pi}4\cos^2\theta\,d\theta + \int_0^{2\pi}2\sin\theta\cos\theta\,d\theta \\
+    & - \int_0^{2\pi}4\cos\theta\,d\theta + \int_0^{2\pi}5\cos^3\theta\,d\theta + \int_0^{2\pi}10\cos^2\theta\,d\theta + \int_0^{2\pi}5\cos\theta\,d\theta \\
+    & = \int_0^{2\pi} -3\cos\theta\sin^2\theta\,d\theta + \int_0^{2\pi}8\cos\theta\sin\theta\,d\theta + \int_0^{2\pi}\sin^2\theta\,d\theta + \int_0^{2\pi}2\sin\theta\,d\theta - \int_0^{2\pi}\sin^3\theta\,d\theta \\
+    & + \int_0^{2\pi} 2\cos^2\theta\sin\theta\,d\theta + \int_0^{2\pi}6\cos^2\theta\,d\theta + \int_0^{2\pi} \cos\theta\,d\theta + \int_0^{2\pi}5\cos^3\theta\,d\theta \\
+    & = 0 + 0 + \pi + 0 + 0 + 0 + 6\pi + 0 + 0 \\
+    & = 7\pi
+\end{align*}
+which is what we obtained from Green's Theorem.

@@ -1,0 +1,155 @@
+\section{Problem 3}
+\edef\sectionheader{February 16}
+
+\noindent \textbf{Problem} \ Let $V$ be the set of vectors in $\mathbb{R}^3$ that have the form
+$\begin{bmatrix}
+a+2b \\
+2a-b \\
+-a+b
+\end{bmatrix}$,
+where $a,b \in \mathbb{R}$.
+\\\\
+    \indent (a) \ \ \ \ Prove that $V$ is a subspace of $\mathbb{R}^3$.
+\\\\
+    \indent (b) \ \ \ \ Find a basis for $V$.
+\\\\
+\noindent \textbf{Solution}
+\\\\
+    \indent (a) \ \ \ \ First, note that $V$ is a subset of $\R^3$, since $V$ only consists of vectors with three real components. To prove that $V$ is a subspace of $\R^3$, we must show that $V$ is
+    \begin{align*}
+        \text{(i) nonempty and contains the zero vector} \\
+        \text{(ii) closed under scalar multiplication} \\
+        \text{(iii) closed under vector addition}.
+    \end{align*}
+    To show (i), we let $a=0,b=0$. Then, $a$ and $b$ are in $\R$, and we see that
+    $\begin{bmatrix}
+        0+20 \\
+        20-0 \\
+        -0+0
+    \end{bmatrix}$
+    =
+    $\begin{bmatrix}
+        0 \\
+        0 \\
+        0
+    \end{bmatrix}$
+    is in $V$. \\
+    To show (ii), let $a,b,c \in \R$. Let $\vec{v} = 
+        \begin{bmatrix}
+            a+2b \\
+            2a-b \\
+            -a+b
+        \end{bmatrix}$. Then, clearly $\vec{v} \in V$. We want to show that $c\vec{v} \in V$. Notice,
+        \begin{align*}
+            c\vec{v} & = c 
+                \begin{bmatrix}
+                    a+2b \\
+                    2a-b \\
+                    -a+b
+            \end{bmatrix} \\
+        & = \begin{bmatrix}
+                c(a+2b) \\
+                c(2a-b) \\
+                c(-a+b)
+            \end{bmatrix} \\
+        & = \begin{bmatrix}
+                ac+2bc \\
+                2ac-bc \\
+                -ac+bc
+            \end{bmatrix}.
+        \end{align*}
+    Now, letting $d=ac,e=bc$, we get that
+    \begin{equation*}
+        c\vec{v} = \begin{bmatrix}
+                        d+2e \\
+                        2d-e \\
+                        -d+e
+                    \end{bmatrix}.
+    \end{equation*}
+    Since $d,e \in \R$, and $c\vec{v}$ is in the form of a vector in $V$, we have that $c\vec{v} \in V$. \\
+    To show (iii), let $a,b,d,e \in \R$. Then, let $\vec{v_1} =                \begin{bmatrix}
+            a+2b \\
+            2a-b \\
+            -a+b
+        \end{bmatrix}$
+    and $\vec{v_2} = 
+        \begin{bmatrix}
+            d+2e \\
+            2d-e \\
+            -d+e
+        \end{bmatrix}$.
+    Clearly, $\vec{v_1}$ and $\vec{v_2}$ are in $V$. We want to show that $\vec{v_1} + \vec{v_2} \in V$. Notice,
+    \begin{align*}
+        \vec{v_1} + \vec{v_2} & =
+            \begin{bmatrix}
+                a+2b \\
+                2a-b \\
+                -a+b
+            \end{bmatrix} + 
+            \begin{bmatrix}
+                d+2e \\
+                2d-e \\
+                -d+e
+        \end{bmatrix} \\
+        & = \begin{bmatrix}
+                a+2b+d+2e \\
+                2a-b+2d-e \\
+                -a+b-d+e
+            \end{bmatrix} \\
+        & = \begin{bmatrix}
+                a+d+2(b+e) \\
+                2(a+d)-(b+e) \\
+                -(a+d)+b+e
+            \end{bmatrix}.
+    \end{align*}
+    Let $f=a+d,g=b+e$. Then, $f,g \in \R$, and
+    \begin{equation*}
+        \vec{v_1}+\vec{v_2} =
+            \begin{bmatrix}
+                f+2g \\
+                2f-g \\
+                -f+g
+            \end{bmatrix}.
+    \end{equation*}
+    This is clearly in the form of a vector in $V$. Hence, $\vec{v_1} + \vec{v_2} \in V$. \\
+    Since $V \subseteq \R^3$, and since (i), (ii), and (iii) hold, we conclude that $V$ is a subspace of $\R^3$.
+\\\\
+    \indent (b) \ \ \ \ To find a basis for $V$, we must find a set of linearly independent vectors that span $V$. If we let $a=1,b=0$, then we get the vector 
+        $\begin{bmatrix}
+            1 \\
+            2 \\
+            -1
+        \end{bmatrix}$.
+    Now if we let $a=0,b=1$, we get
+        $\begin{bmatrix}
+            2 \\
+            -1 \\
+            1
+        \end{bmatrix}$.
+    Since these are not scalar multiples of each other, they are linearly independent. Now, notice that any vector in $V$ is of the form
+    $\begin{bmatrix}
+        a+2b \\
+        2a-b \\
+        -a+b
+    \end{bmatrix} =$
+    $\begin{bmatrix}
+        a \\
+        2a \\
+        -a
+    \end{bmatrix} + $
+    $\begin{bmatrix}
+        2b \\
+        b \\
+        b
+    \end{bmatrix}$,
+    with $a,b \in \R$. This is a linear combination of two independent vectors in $\R^3$. Therefore, $V$ is a plane in $\R^3$, and a possible basis for $V$ is
+    $\left\{ \begin{bmatrix}
+            1 \\
+            2 \\
+            -1
+            \end{bmatrix},
+            \begin{bmatrix}
+                2 \\
+                -1 \\
+                1
+            \end{bmatrix} \right\}$.

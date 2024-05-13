@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{notes}
+
+\usepackage{graphicx} % Required for inserting images
+\graphicspath{ {./images/} }
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Math TA Problem Set}
+\rhead{\sectionheader}
+\def\sectionheader{}
+
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\title{Math TA Problem Set}
+\author{Athanasios Grivakis}
+\date{Spring 2024\\ Last update:~\today}
+\maketitle
+\tableofcontents
+\vspace{5em}
+
+\AddToHook{cmd/section/before}{\clearpage}
+\newpage
+
+\input{sections/prob1}
+\input{sections/prob2}
+\input{sections/prob3}
+\input{sections/prob4}
+
+
+\end{document}

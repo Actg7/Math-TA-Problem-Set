@@ -1,0 +1,21 @@
+\section{Problem 2}
+\edef\sectionheader{February 16}
+
+\noindent \textbf{Problem} \ Evaluate the integral $\int \frac{1}{\sqrt{e^{2x}-25}} \,dx$. Show work to justify all steps using techniques of
+integration. Using an integral table is not a sufficient explanation.
+\\\\
+\noindent \textbf{Solution} We can use trigonometric substitution for this problem. Let $e^x = 5\sec\theta$. Then, $x = \ln(5\sec\theta)$ for $\theta \in (-\pi/2,\pi/2)$, and
+\begin{align*}
+    dx & = \frac{1}{5\sec\theta} \times 5\sec\theta\tan\theta \,d\theta \\
+    & = \tan\theta \,d\theta.
+\end{align*}
+Next, we have
+\begin{align*}
+    \int \frac{1}{\sqrt{e^{2x}-25}} \,dx & = \int \frac{\tan\theta \,d\theta}{\sqrt{25\sec^2\theta - 25}} \\
+    & = \int \frac{\tan\theta \,d\theta}{\sqrt{25(\sec^2\theta - 1)}} \\
+    & = \frac15 \int \frac{\tan\theta \,d\theta}{\sqrt{\tan^2\theta}} \\
+    & = \frac15 \int \frac{\tan\theta \,d\theta}{\tan\theta} \\
+    & = \frac15 \int \,d\theta \\
+    & = \frac15 \theta + C.
+\end{align*}
+Since $e^x = 5\sec\theta$, it follows that $\theta = \arccos(5e^{-x})$. Therefore, the integral evaluates to $\frac{\arccos(5e^{-x})}{5} + C$.

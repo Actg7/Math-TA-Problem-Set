@@ -1,0 +1,34 @@
+\section{Problem 1}
+\edef\sectionheader{February 16}
+
+\noindent \textbf{Problem} \ A string of length $L$ inches is cut into two pieces. One piece is formed into a square, and the other piece is formed into a circle. Where should the string be cut in order to minimize the sums of the areas of the square and circle? USE CALCULUS.
+\\\\
+\noindent \textbf{Solution} Suppose the string of length $L$ is cut at $x$. Then, the two pieces form lengths of $x$ and $L-x$, respectively. Wlog, suppose that the piece of length $x$ forms the square, and the piece of length $L-x$ forms the circle. The area of the square will be the square of the length of the side, where the length of a side will be one-fourth that of the total length. Hence, the area of the square will be $\frac{x^2}{16}$. Now, the area of the circle will be $\pi r^2$, where $r$ is the radius of the circle. Since the circumference of the circle will have length $L-x$, this means that $2\pi r = L-x$. Hence, $r = \frac{L-x}{2\pi}$, and the area of the circle is
+\begin{align*}
+    \pi r^2 & = \pi \left( \frac{L-x}{2\pi} \right)^2 \\
+    & = \frac{\pi (L-x)^2}{4\pi^2} \\
+    & = \frac{(L-x)^2}{4\pi}.
+\end{align*}
+Thus, the sum of the areas of the square and the circle will be $\frac{x^2}{16} + \frac{(L-x)^2}{4\pi}$. We want this area minimized. Let $f(x) = \frac{x^2}{16} + \frac{(L-x)^2}{4\pi}$. Then,
+\begin{align*}
+    f'(x) & = \frac{x}{8} + \frac{2(L-x)(-1)}{4\pi} \\
+    & = \frac{x}{8} + \frac{x}{2\pi} - \frac{L}{2\pi} \\
+    & = \frac{\pi x + 4x}{8\pi} - \frac{L}{2\pi}.
+\end{align*}
+Setting $f'(x) = 0$ gives
+\begin{align*}
+    & \frac{\pi x + 4x}{8\pi} = \frac{L}{2\pi} \\
+    \implies & \pi x + 4x = 8\pi \times \frac{L}{2\pi} \\
+    \implies & \pi x + 4x = 4L \\
+    \implies & (\pi + 4)x = 4L \\
+    \implies & x = \frac{4L}{\pi + 4}.
+\end{align*}
+We see that $f''(x) = \frac{4+\pi}{8\pi}$, which is positive. This means that $f(x)$ has a local minimum at $x=\frac{4L}{\pi+4}$. Thus, the string should be cut at $x = \frac{4L}{\pi+4}$ inches to minimize the total area. Plugging in $\frac{4L}{\pi+4}$ to $f(x)$, we get that
+\begin{align*}
+    f\left(\frac{4L}{\pi+4}\right) & = \frac{\left(\frac{4L}{\pi+4}\right)^2}{16} + \frac{\left(L-\left(\frac{4L}{\pi+4}\right)\right)^2}{4\pi} \\
+    & = \frac{16L^2}{16(\pi+4)^2} + \frac{L^2 - \frac{8L}{\pi+4} + \frac{16L^2}{(\pi+4)^2}}{4\pi} \\
+    & = \frac{16L^2}{16(\pi+4)^2} + \frac{L^2}{4\pi} - \frac{8L}{4\pi(\pi+4)} + \frac{16L^2}{4\pi(\pi+4)^2}\\
+    & = 16\pi L^2 + 4(\pi+4)L^2 - 32(\pi+4)L + 64L^2 \\
+    & = (20\pi+4)L^2 + (60-32\pi)L
+\end{align*}
+is the minimal total area with a string of length $L$.
