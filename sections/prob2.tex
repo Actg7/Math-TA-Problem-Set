@@ -14,8 +14,8 @@ Next, we have
     \int \frac{1}{\sqrt{e^{2x}-25}} \,dx & = \int \frac{\tan\theta \,d\theta}{\sqrt{25\sec^2\theta - 25}} \\
     & = \int \frac{\tan\theta \,d\theta}{\sqrt{25(\sec^2\theta - 1)}} \\
     & = \frac15 \int \frac{\tan\theta \,d\theta}{\sqrt{\tan^2\theta}} \\
-    & = \frac15 \int \frac{\tan\theta \,d\theta}{\tan\theta} \\
-    & = \frac15 \int \,d\theta \\
+    & = \frac15 \int \frac{\tan\theta \,d\theta}{\left|\tan\theta\right|} \\
+    & = \frac15 \int \, \pm 1 d\theta \\
     & = \frac15 \theta + C.
 \end{align*}
-Since $e^x = 5\sec\theta$, it follows that $\theta = \arccos(5e^{-x})$. Therefore, the integral evaluates to $\frac{\arccos(5e^{-x})}{5} + C$.
+where $\pm 1$ depends on the value of $\theta$. Notice that since $\tan\theta$ and $\theta$ have the same sign over $(\pi/2, \pi/2)$, the $\theta$ term we get after integrating eliminates the need for $\pm$. Since $e^x = 5\sec\theta$, it follows that $\theta = \arccos(5e^{-x})$. Therefore, the integral evaluates to $\frac{\arccos(5e^{-x})}{5} + C$.
